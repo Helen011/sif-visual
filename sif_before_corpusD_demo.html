@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIF 1.0 — Before Corpus D</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#102033;--muted:#5e7184;--blue:#246a9b;--deep:#123c5c;--red:#9b2c2c;--green:#237a57;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--serif:'Lora',serif}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#dbeefa;color:var(--ink);font-family:var(--sans)}
+body{display:flex;align-items:center;justify-content:center;padding:28px}
+.frame{width:min(1120px,100%);min-height:700px;background:radial-gradient(circle at var(--mx,72%) var(--my,24%),rgba(36,106,155,.18),transparent 32%),linear-gradient(135deg,#eaf4fb,#dbeefa);border:1px solid rgba(16,32,51,.12);box-shadow:0 28px 80px rgba(16,32,51,.18);position:relative;overflow:hidden;padding:54px clamp(28px,6vw,80px)}
+.frame:before{content:"";position:absolute;inset:38px;border:1px solid rgba(36,106,155,.13);pointer-events:none}
+.frame:after{content:"";position:absolute;left:-20%;right:-20%;top:54%;height:1px;background:linear-gradient(90deg,transparent,rgba(36,106,155,.35),transparent);animation:breathLine 7s ease-in-out infinite}
+@keyframes breathLine{0%,100%{opacity:.15;transform:translateY(0)}50%{opacity:.55;transform:translateY(-8px)}}
+.top{position:relative;z-index:2;display:flex;justify-content:space-between;gap:20px;margin-bottom:72px}
+.kicker{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.22em;color:var(--deep)}
+.note{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
+.main{position:relative;z-index:2;max-width:900px}
+.claim{font-family:var(--mono);font-size:clamp(15px,2vw,19px);line-height:1.8;color:var(--muted);margin-bottom:42px}
+.claim span{color:var(--deep);font-weight:600}
+.line{font-size:clamp(34px,6vw,76px);line-height:1.05;letter-spacing:-.045em;font-weight:700}
+.question{margin-top:28px;font-size:clamp(28px,4.7vw,58px);line-height:1.12;letter-spacing:-.035em;font-weight:600;color:var(--deep)}
+.word{display:inline-block;animation:rise 6.4s ease-in-out infinite}.word.two{animation-delay:.16s}
+@keyframes rise{0%,16%{opacity:0;transform:translateY(18px)}28%,100%{opacity:1;transform:translateY(0)}}
+.output{margin-top:58px;width:min(740px,100%)}
+.track{position:relative;height:3px;background:rgba(16,32,51,.15)}
+.track:before,.track:after{content:"";position:absolute;top:-7px;width:2px;height:17px;background:rgba(16,32,51,.38)}.track:before{left:0}.track:after{right:0}
+.marker{position:absolute;top:-8px;left:0;width:19px;height:19px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 9px rgba(36,106,155,.10);animation:move 6.4s ease-in-out infinite}
+@keyframes move{0%,18%{left:0;opacity:.25;background:var(--blue)}36%{left:44%;opacity:1;background:var(--green)}58%{left:73%;background:var(--green)}72%{left:91%;background:var(--blue)}82%,100%{left:91%;background:var(--red);box-shadow:0 0 0 14px rgba(155,44,44,.09)}}
+.labels{display:flex;justify-content:space-between;margin-top:15px;font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.until{margin-top:46px;font-family:var(--serif);font-style:italic;color:var(--red);font-size:clamp(24px,3.8vw,44px);line-height:1.15;opacity:0;animation:appear 6.4s ease-in-out infinite}
+@keyframes appear{0%,58%{opacity:0;transform:translateY(10px)}72%,100%{opacity:1;transform:translateY(0)}}
+.bottom{position:absolute;left:clamp(28px,6vw,80px);right:clamp(28px,6vw,80px);bottom:40px;display:flex;justify-content:space-between;gap:20px;align-items:flex-end;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.12em;z-index:2}
+button{border:1px solid rgba(16,32,51,.18);background:transparent;color:var(--muted);padding:9px 15px;font-family:var(--mono);font-size:12px;cursor:pointer}
+button:hover{color:var(--ink);border-color:rgba(16,32,51,.4)}
+@media(max-width:760px){body{padding:0}.frame{min-height:100vh;border:none;padding:40px 24px}.top{margin-bottom:58px;flex-direction:column}.bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:72px;flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<section class="frame" id="frame">
+  <div class="top">
+    <div class="kicker">SIF 1.0 · before Corpus D</div>
+    <div class="note">Layer 1–2 published · next: transfer limit</div>
+  </div>
+
+  <main class="main">
+    <div class="claim">
+      We showed that:<br>
+      <span>structure dominates magnitude</span><br>
+      <span>the system remains stable under stress</span>
+    </div>
+
+    <div class="line">
+      <span class="word">So the model</span><br>
+      <span class="word two">learns structure.</span>
+    </div>
+
+    <div class="question">
+      But does this structure<br>
+      survive in output?
+    </div>
+
+    <div class="output">
+      <div class="track"><div class="marker"></div></div>
+      <div class="labels">
+        <span>structure</span>
+        <span>model</span>
+        <span>output</span>
+      </div>
+    </div>
+
+    <div class="until">
+      Most translations look correct.<br>
+      Until they are checked.
+    </div>
+  </main>
+
+  <div class="bottom">
+    <div>SIF 1.0 · Generation → Verification</div>
+    <button onclick="location.reload()">replay</button>
+  </div>
+</section>
+
+<script>
+const frame=document.getElementById('frame');
+document.addEventListener('mousemove',e=>{
+  frame.style.setProperty('--mx',(e.clientX/window.innerWidth*100)+'%');
+  frame.style.setProperty('--my',(e.clientY/window.innerHeight*100)+'%');
+});
+document.addEventListener('touchmove',e=>{
+  if(!e.touches||!e.touches[0])return;
+  const t=e.touches[0];
+  frame.style.setProperty('--mx',(t.clientX/window.innerWidth*100)+'%');
+  frame.style.setProperty('--my',(t.clientY/window.innerHeight*100)+'%');
+},{passive:true});
+</script>
+</body>
+</html>
